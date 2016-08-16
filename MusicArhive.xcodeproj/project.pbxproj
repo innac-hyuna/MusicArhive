@@ -1,0 +1,730 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0317C591F903778765E86C36 /* Pods_MusicArhive_MusicArhiveUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54360159B1B3E7CDB47D65B7 /* Pods_MusicArhive_MusicArhiveUITests.framework */; };
+		0810B167EC4BE0475523ACE2 /* Pods_MusicArhive_MusicArhiveTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F59F61F5F39B61B9008884 /* Pods_MusicArhive_MusicArhiveTests.framework */; };
+		5F8F47BC532C27C3F38990F1 /* Pods_MusicArhive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A6EBC4825D554883F85D358 /* Pods_MusicArhive.framework */; };
+		DADD921F1D631B9C009A6736 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD921E1D631B9C009A6736 /* AppDelegate.swift */; };
+		DADD92211D631B9C009A6736 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD92201D631B9C009A6736 /* MainViewController.swift */; };
+		DADD92271D631B9C009A6736 /* MusicArhive.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DADD92251D631B9C009A6736 /* MusicArhive.xcdatamodeld */; };
+		DADD92291D631B9C009A6736 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DADD92281D631B9C009A6736 /* Assets.xcassets */; };
+		DADD922C1D631B9C009A6736 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DADD922A1D631B9C009A6736 /* LaunchScreen.storyboard */; };
+		DADD92371D631B9C009A6736 /* MusicArhiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD92361D631B9C009A6736 /* MusicArhiveTests.swift */; };
+		DADD92421D631B9C009A6736 /* MusicArhiveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD92411D631B9C009A6736 /* MusicArhiveUITests.swift */; };
+		DADD92521D633164009A6736 /* DJsonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD92511D633164009A6736 /* DJsonManager.swift */; };
+		DADD92541D633BD0009A6736 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = DADD92531D633BD0009A6736 /* Podfile */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DADD92331D631B9C009A6736 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DADD92131D631B9C009A6736 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DADD921A1D631B9C009A6736;
+			remoteInfo = MusicArhive;
+		};
+		DADD923E1D631B9C009A6736 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DADD92131D631B9C009A6736 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DADD921A1D631B9C009A6736;
+			remoteInfo = MusicArhive;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0FEAFB7872B419CFCACBE180 /* Pods-MusicArhive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicArhive.release.xcconfig"; path = "Pods/Target Support Files/Pods-MusicArhive/Pods-MusicArhive.release.xcconfig"; sourceTree = "<group>"; };
+		1A6EBC4825D554883F85D358 /* Pods_MusicArhive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusicArhive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3275F195DA81B6FAD14E5F5D /* Pods-MusicArhive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicArhive.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MusicArhive/Pods-MusicArhive.debug.xcconfig"; sourceTree = "<group>"; };
+		3606AD8363F9239C00A79D4F /* Pods-MusicArhive-MusicArhiveUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicArhive-MusicArhiveUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MusicArhive-MusicArhiveUITests/Pods-MusicArhive-MusicArhiveUITests.release.xcconfig"; sourceTree = "<group>"; };
+		38F59F61F5F39B61B9008884 /* Pods_MusicArhive_MusicArhiveTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusicArhive_MusicArhiveTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		54360159B1B3E7CDB47D65B7 /* Pods_MusicArhive_MusicArhiveUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusicArhive_MusicArhiveUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F9953418A3E954829D51C75 /* Pods-MusicArhive-MusicArhiveUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicArhive-MusicArhiveUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MusicArhive-MusicArhiveUITests/Pods-MusicArhive-MusicArhiveUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		714803A255011F8C0AE64F10 /* Pods-MusicArhive-MusicArhiveTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicArhive-MusicArhiveTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MusicArhive-MusicArhiveTests/Pods-MusicArhive-MusicArhiveTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7629488389E362F490202B43 /* Pods-MusicArhive-MusicArhiveTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicArhive-MusicArhiveTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MusicArhive-MusicArhiveTests/Pods-MusicArhive-MusicArhiveTests.release.xcconfig"; sourceTree = "<group>"; };
+		DADD921B1D631B9C009A6736 /* MusicArhive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicArhive.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DADD921E1D631B9C009A6736 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DADD92201D631B9C009A6736 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		DADD92261D631B9C009A6736 /* MusicArhive.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MusicArhive.xcdatamodel; sourceTree = "<group>"; };
+		DADD92281D631B9C009A6736 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DADD922B1D631B9C009A6736 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DADD922D1D631B9C009A6736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DADD92321D631B9C009A6736 /* MusicArhiveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicArhiveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DADD92361D631B9C009A6736 /* MusicArhiveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicArhiveTests.swift; sourceTree = "<group>"; };
+		DADD92381D631B9C009A6736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DADD923D1D631B9C009A6736 /* MusicArhiveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicArhiveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DADD92411D631B9C009A6736 /* MusicArhiveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicArhiveUITests.swift; sourceTree = "<group>"; };
+		DADD92431D631B9C009A6736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DADD92511D633164009A6736 /* DJsonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DJsonManager.swift; sourceTree = "<group>"; };
+		DADD92531D633BD0009A6736 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DADD92181D631B9C009A6736 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F8F47BC532C27C3F38990F1 /* Pods_MusicArhive.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DADD922F1D631B9C009A6736 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0810B167EC4BE0475523ACE2 /* Pods_MusicArhive_MusicArhiveTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DADD923A1D631B9C009A6736 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0317C591F903778765E86C36 /* Pods_MusicArhive_MusicArhiveUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2E1FCA88FE4AAFF7A04F280E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1A6EBC4825D554883F85D358 /* Pods_MusicArhive.framework */,
+				38F59F61F5F39B61B9008884 /* Pods_MusicArhive_MusicArhiveTests.framework */,
+				54360159B1B3E7CDB47D65B7 /* Pods_MusicArhive_MusicArhiveUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		848BD7A5FE576D0869BFAFB4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3275F195DA81B6FAD14E5F5D /* Pods-MusicArhive.debug.xcconfig */,
+				0FEAFB7872B419CFCACBE180 /* Pods-MusicArhive.release.xcconfig */,
+				714803A255011F8C0AE64F10 /* Pods-MusicArhive-MusicArhiveTests.debug.xcconfig */,
+				7629488389E362F490202B43 /* Pods-MusicArhive-MusicArhiveTests.release.xcconfig */,
+				5F9953418A3E954829D51C75 /* Pods-MusicArhive-MusicArhiveUITests.debug.xcconfig */,
+				3606AD8363F9239C00A79D4F /* Pods-MusicArhive-MusicArhiveUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DADD92121D631B9C009A6736 = {
+			isa = PBXGroup;
+			children = (
+				DADD921D1D631B9C009A6736 /* MusicArhive */,
+				DADD92351D631B9C009A6736 /* MusicArhiveTests */,
+				DADD92401D631B9C009A6736 /* MusicArhiveUITests */,
+				DADD921C1D631B9C009A6736 /* Products */,
+				848BD7A5FE576D0869BFAFB4 /* Pods */,
+				2E1FCA88FE4AAFF7A04F280E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DADD921C1D631B9C009A6736 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DADD921B1D631B9C009A6736 /* MusicArhive.app */,
+				DADD92321D631B9C009A6736 /* MusicArhiveTests.xctest */,
+				DADD923D1D631B9C009A6736 /* MusicArhiveUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DADD921D1D631B9C009A6736 /* MusicArhive */ = {
+			isa = PBXGroup;
+			children = (
+				DADD92531D633BD0009A6736 /* Podfile */,
+				DADD92501D6330BE009A6736 /* ViewControllers */,
+				DADD924F1D6330B0009A6736 /* Module */,
+				DADD921E1D631B9C009A6736 /* AppDelegate.swift */,
+				DADD92281D631B9C009A6736 /* Assets.xcassets */,
+				DADD922A1D631B9C009A6736 /* LaunchScreen.storyboard */,
+				DADD922D1D631B9C009A6736 /* Info.plist */,
+				DADD92251D631B9C009A6736 /* MusicArhive.xcdatamodeld */,
+			);
+			path = MusicArhive;
+			sourceTree = "<group>";
+		};
+		DADD92351D631B9C009A6736 /* MusicArhiveTests */ = {
+			isa = PBXGroup;
+			children = (
+				DADD92361D631B9C009A6736 /* MusicArhiveTests.swift */,
+				DADD92381D631B9C009A6736 /* Info.plist */,
+			);
+			path = MusicArhiveTests;
+			sourceTree = "<group>";
+		};
+		DADD92401D631B9C009A6736 /* MusicArhiveUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DADD92411D631B9C009A6736 /* MusicArhiveUITests.swift */,
+				DADD92431D631B9C009A6736 /* Info.plist */,
+			);
+			path = MusicArhiveUITests;
+			sourceTree = "<group>";
+		};
+		DADD924F1D6330B0009A6736 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				DADD92511D633164009A6736 /* DJsonManager.swift */,
+			);
+			name = Module;
+			sourceTree = "<group>";
+		};
+		DADD92501D6330BE009A6736 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DADD92201D631B9C009A6736 /* MainViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DADD921A1D631B9C009A6736 /* MusicArhive */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DADD92461D631B9C009A6736 /* Build configuration list for PBXNativeTarget "MusicArhive" */;
+			buildPhases = (
+				748EF9DCD66C3757AA0A0DF8 /* [CP] Check Pods Manifest.lock */,
+				DADD92171D631B9C009A6736 /* Sources */,
+				DADD92181D631B9C009A6736 /* Frameworks */,
+				DADD92191D631B9C009A6736 /* Resources */,
+				CCA1386E87166DD10D53E835 /* [CP] Embed Pods Frameworks */,
+				F60055A07E6D1F63740B505B /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MusicArhive;
+			productName = MusicArhive;
+			productReference = DADD921B1D631B9C009A6736 /* MusicArhive.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DADD92311D631B9C009A6736 /* MusicArhiveTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DADD92491D631B9C009A6736 /* Build configuration list for PBXNativeTarget "MusicArhiveTests" */;
+			buildPhases = (
+				19DA7AEE82DEC0B9A456F7AC /* [CP] Check Pods Manifest.lock */,
+				DADD922E1D631B9C009A6736 /* Sources */,
+				DADD922F1D631B9C009A6736 /* Frameworks */,
+				DADD92301D631B9C009A6736 /* Resources */,
+				16169E3918C278435AD04265 /* [CP] Embed Pods Frameworks */,
+				02F6BC5384F9BA9677511EDD /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DADD92341D631B9C009A6736 /* PBXTargetDependency */,
+			);
+			name = MusicArhiveTests;
+			productName = MusicArhiveTests;
+			productReference = DADD92321D631B9C009A6736 /* MusicArhiveTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DADD923C1D631B9C009A6736 /* MusicArhiveUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DADD924C1D631B9C009A6736 /* Build configuration list for PBXNativeTarget "MusicArhiveUITests" */;
+			buildPhases = (
+				B9BE644CACECED4FD255002D /* [CP] Check Pods Manifest.lock */,
+				DADD92391D631B9C009A6736 /* Sources */,
+				DADD923A1D631B9C009A6736 /* Frameworks */,
+				DADD923B1D631B9C009A6736 /* Resources */,
+				EE3ADCC50A66F21539E40603 /* [CP] Embed Pods Frameworks */,
+				BD438CAE2D7055B0FC1A8F2C /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DADD923F1D631B9C009A6736 /* PBXTargetDependency */,
+			);
+			name = MusicArhiveUITests;
+			productName = MusicArhiveUITests;
+			productReference = DADD923D1D631B9C009A6736 /* MusicArhiveUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DADD92131D631B9C009A6736 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = courses;
+				TargetAttributes = {
+					DADD921A1D631B9C009A6736 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					DADD92311D631B9C009A6736 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = DADD921A1D631B9C009A6736;
+					};
+					DADD923C1D631B9C009A6736 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = DADD921A1D631B9C009A6736;
+					};
+				};
+			};
+			buildConfigurationList = DADD92161D631B9C009A6736 /* Build configuration list for PBXProject "MusicArhive" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DADD92121D631B9C009A6736;
+			productRefGroup = DADD921C1D631B9C009A6736 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DADD921A1D631B9C009A6736 /* MusicArhive */,
+				DADD92311D631B9C009A6736 /* MusicArhiveTests */,
+				DADD923C1D631B9C009A6736 /* MusicArhiveUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DADD92191D631B9C009A6736 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DADD92541D633BD0009A6736 /* Podfile in Resources */,
+				DADD922C1D631B9C009A6736 /* LaunchScreen.storyboard in Resources */,
+				DADD92291D631B9C009A6736 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DADD92301D631B9C009A6736 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DADD923B1D631B9C009A6736 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		02F6BC5384F9BA9677511EDD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MusicArhive-MusicArhiveTests/Pods-MusicArhive-MusicArhiveTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		16169E3918C278435AD04265 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MusicArhive-MusicArhiveTests/Pods-MusicArhive-MusicArhiveTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		19DA7AEE82DEC0B9A456F7AC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		748EF9DCD66C3757AA0A0DF8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B9BE644CACECED4FD255002D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BD438CAE2D7055B0FC1A8F2C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MusicArhive-MusicArhiveUITests/Pods-MusicArhive-MusicArhiveUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CCA1386E87166DD10D53E835 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MusicArhive/Pods-MusicArhive-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE3ADCC50A66F21539E40603 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MusicArhive-MusicArhiveUITests/Pods-MusicArhive-MusicArhiveUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F60055A07E6D1F63740B505B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MusicArhive/Pods-MusicArhive-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DADD92171D631B9C009A6736 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DADD92211D631B9C009A6736 /* MainViewController.swift in Sources */,
+				DADD92271D631B9C009A6736 /* MusicArhive.xcdatamodeld in Sources */,
+				DADD92521D633164009A6736 /* DJsonManager.swift in Sources */,
+				DADD921F1D631B9C009A6736 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DADD922E1D631B9C009A6736 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DADD92371D631B9C009A6736 /* MusicArhiveTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DADD92391D631B9C009A6736 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DADD92421D631B9C009A6736 /* MusicArhiveUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DADD92341D631B9C009A6736 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DADD921A1D631B9C009A6736 /* MusicArhive */;
+			targetProxy = DADD92331D631B9C009A6736 /* PBXContainerItemProxy */;
+		};
+		DADD923F1D631B9C009A6736 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DADD921A1D631B9C009A6736 /* MusicArhive */;
+			targetProxy = DADD923E1D631B9C009A6736 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DADD922A1D631B9C009A6736 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DADD922B1D631B9C009A6736 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DADD92441D631B9C009A6736 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DADD92451D631B9C009A6736 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DADD92471D631B9C009A6736 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3275F195DA81B6FAD14E5F5D /* Pods-MusicArhive.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MusicArhive/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hyuna.inc.MusicArhive;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DADD92481D631B9C009A6736 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0FEAFB7872B419CFCACBE180 /* Pods-MusicArhive.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MusicArhive/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hyuna.inc.MusicArhive;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		DADD924A1D631B9C009A6736 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 714803A255011F8C0AE64F10 /* Pods-MusicArhive-MusicArhiveTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MusicArhiveTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hyuna.inc.MusicArhiveTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MusicArhive.app/MusicArhive";
+			};
+			name = Debug;
+		};
+		DADD924B1D631B9C009A6736 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7629488389E362F490202B43 /* Pods-MusicArhive-MusicArhiveTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MusicArhiveTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hyuna.inc.MusicArhiveTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MusicArhive.app/MusicArhive";
+			};
+			name = Release;
+		};
+		DADD924D1D631B9C009A6736 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F9953418A3E954829D51C75 /* Pods-MusicArhive-MusicArhiveUITests.debug.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = MusicArhiveUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hyuna.inc.MusicArhiveUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MusicArhive;
+			};
+			name = Debug;
+		};
+		DADD924E1D631B9C009A6736 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3606AD8363F9239C00A79D4F /* Pods-MusicArhive-MusicArhiveUITests.release.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = MusicArhiveUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hyuna.inc.MusicArhiveUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MusicArhive;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DADD92161D631B9C009A6736 /* Build configuration list for PBXProject "MusicArhive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DADD92441D631B9C009A6736 /* Debug */,
+				DADD92451D631B9C009A6736 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DADD92461D631B9C009A6736 /* Build configuration list for PBXNativeTarget "MusicArhive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DADD92471D631B9C009A6736 /* Debug */,
+				DADD92481D631B9C009A6736 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DADD92491D631B9C009A6736 /* Build configuration list for PBXNativeTarget "MusicArhiveTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DADD924A1D631B9C009A6736 /* Debug */,
+				DADD924B1D631B9C009A6736 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DADD924C1D631B9C009A6736 /* Build configuration list for PBXNativeTarget "MusicArhiveUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DADD924D1D631B9C009A6736 /* Debug */,
+				DADD924E1D631B9C009A6736 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DADD92251D631B9C009A6736 /* MusicArhive.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DADD92261D631B9C009A6736 /* MusicArhive.xcdatamodel */,
+			);
+			currentVersion = DADD92261D631B9C009A6736 /* MusicArhive.xcdatamodel */;
+			path = MusicArhive.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = DADD92131D631B9C009A6736 /* Project object */;
+}

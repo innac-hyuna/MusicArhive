@@ -17,8 +17,10 @@
 		DADD922C1D631B9C009A6736 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DADD922A1D631B9C009A6736 /* LaunchScreen.storyboard */; };
 		DADD92371D631B9C009A6736 /* MusicArhiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD92361D631B9C009A6736 /* MusicArhiveTests.swift */; };
 		DADD92421D631B9C009A6736 /* MusicArhiveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD92411D631B9C009A6736 /* MusicArhiveUITests.swift */; };
-		DADD92521D633164009A6736 /* DJsonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD92511D633164009A6736 /* DJsonManager.swift */; };
+		DADD92521D633164009A6736 /* JsonDCoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD92511D633164009A6736 /* JsonDCoreManager.swift */; };
 		DADD92541D633BD0009A6736 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = DADD92531D633BD0009A6736 /* Podfile */; };
+		DADD92571D6343B3009A6736 /* DataMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD92561D6343B3009A6736 /* DataMusic.swift */; };
+		DADD925C1D637708009A6736 /* MusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD925B1D637708009A6736 /* MusicTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,8 +63,10 @@
 		DADD923D1D631B9C009A6736 /* MusicArhiveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicArhiveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DADD92411D631B9C009A6736 /* MusicArhiveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicArhiveUITests.swift; sourceTree = "<group>"; };
 		DADD92431D631B9C009A6736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DADD92511D633164009A6736 /* DJsonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DJsonManager.swift; sourceTree = "<group>"; };
+		DADD92511D633164009A6736 /* JsonDCoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonDCoreManager.swift; sourceTree = "<group>"; };
 		DADD92531D633BD0009A6736 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		DADD92561D6343B3009A6736 /* DataMusic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataMusic.swift; sourceTree = "<group>"; };
+		DADD925B1D637708009A6736 /* MusicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +145,7 @@
 		DADD921D1D631B9C009A6736 /* MusicArhive */ = {
 			isa = PBXGroup;
 			children = (
+				DADD925A1D6376C4009A6736 /* Cell */,
 				DADD92531D633BD0009A6736 /* Podfile */,
 				DADD92501D6330BE009A6736 /* ViewControllers */,
 				DADD924F1D6330B0009A6736 /* Module */,
@@ -174,7 +179,8 @@
 		DADD924F1D6330B0009A6736 /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				DADD92511D633164009A6736 /* DJsonManager.swift */,
+				DADD92511D633164009A6736 /* JsonDCoreManager.swift */,
+				DADD92561D6343B3009A6736 /* DataMusic.swift */,
 			);
 			name = Module;
 			sourceTree = "<group>";
@@ -185,6 +191,14 @@
 				DADD92201D631B9C009A6736 /* MainViewController.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		DADD925A1D6376C4009A6736 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DADD925B1D637708009A6736 /* MusicTableViewCell.swift */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -467,8 +481,10 @@
 			files = (
 				DADD92211D631B9C009A6736 /* MainViewController.swift in Sources */,
 				DADD92271D631B9C009A6736 /* MusicArhive.xcdatamodeld in Sources */,
-				DADD92521D633164009A6736 /* DJsonManager.swift in Sources */,
+				DADD92521D633164009A6736 /* JsonDCoreManager.swift in Sources */,
+				DADD92571D6343B3009A6736 /* DataMusic.swift in Sources */,
 				DADD921F1D631B9C009A6736 /* AppDelegate.swift in Sources */,
+				DADD925C1D637708009A6736 /* MusicTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

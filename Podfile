@@ -7,6 +7,8 @@ use_frameworks!
 # Pods for Mince
 pod 'AlamofireObjectMapper', '~> 3.0'
 pod 'MBProgressHUD'
+pod 'Kingfisher', '~> 2.4'
+pod 'SnapKit', '~> 0.15.0'
 
 target ‘MusicArhiveTests' do
 

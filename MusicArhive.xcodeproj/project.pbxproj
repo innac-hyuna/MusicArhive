@@ -18,7 +18,6 @@
 		DADD92371D631B9C009A6736 /* MusicArhiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD92361D631B9C009A6736 /* MusicArhiveTests.swift */; };
 		DADD92421D631B9C009A6736 /* MusicArhiveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD92411D631B9C009A6736 /* MusicArhiveUITests.swift */; };
 		DADD92521D633164009A6736 /* JsonDCoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD92511D633164009A6736 /* JsonDCoreManager.swift */; };
-		DADD92541D633BD0009A6736 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = DADD92531D633BD0009A6736 /* Podfile */; };
 		DADD92571D6343B3009A6736 /* DataMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD92561D6343B3009A6736 /* DataMusic.swift */; };
 		DADD925C1D637708009A6736 /* MusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD925B1D637708009A6736 /* MusicTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -64,7 +63,6 @@
 		DADD92411D631B9C009A6736 /* MusicArhiveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicArhiveUITests.swift; sourceTree = "<group>"; };
 		DADD92431D631B9C009A6736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DADD92511D633164009A6736 /* JsonDCoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonDCoreManager.swift; sourceTree = "<group>"; };
-		DADD92531D633BD0009A6736 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		DADD92561D6343B3009A6736 /* DataMusic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataMusic.swift; sourceTree = "<group>"; };
 		DADD925B1D637708009A6736 /* MusicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,9 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				DADD925A1D6376C4009A6736 /* Cell */,
-				DADD92531D633BD0009A6736 /* Podfile */,
 				DADD92501D6330BE009A6736 /* ViewControllers */,
-				DADD924F1D6330B0009A6736 /* Module */,
+				DADD924F1D6330B0009A6736 /* Model */,
 				DADD921E1D631B9C009A6736 /* AppDelegate.swift */,
 				DADD92281D631B9C009A6736 /* Assets.xcassets */,
 				DADD922A1D631B9C009A6736 /* LaunchScreen.storyboard */,
@@ -176,13 +173,13 @@
 			path = MusicArhiveUITests;
 			sourceTree = "<group>";
 		};
-		DADD924F1D6330B0009A6736 /* Module */ = {
+		DADD924F1D6330B0009A6736 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				DADD92511D633164009A6736 /* JsonDCoreManager.swift */,
 				DADD92561D6343B3009A6736 /* DataMusic.swift */,
 			);
-			name = Module;
+			name = Model;
 			sourceTree = "<group>";
 		};
 		DADD92501D6330BE009A6736 /* ViewControllers */ = {
@@ -314,7 +311,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DADD92541D633BD0009A6736 /* Podfile in Resources */,
 				DADD922C1D631B9C009A6736 /* LaunchScreen.storyboard in Resources */,
 				DADD92291D631B9C009A6736 /* Assets.xcassets in Resources */,
 			);

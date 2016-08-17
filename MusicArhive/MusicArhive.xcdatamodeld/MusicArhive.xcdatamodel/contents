@@ -3,11 +3,11 @@
     <entity name="MusicData" syncable="YES">
         <attribute name="duration" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="file" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" spotlightIndexingEnabled="YES" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="image_file" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="MusicData" positionX="-54" positionY="-9" width="216" height="118"/>
+        <element name="MusicData" positionX="-360" positionY="-117" width="216" height="118"/>
     </elements>
 </model>

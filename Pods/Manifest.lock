@@ -6,12 +6,25 @@ PODS:
   - Kingfisher (2.4.2)
   - MBProgressHUD (1.0.0)
   - ObjectMapper (1.3.0)
+  - ReactiveCocoa (4.0.0):
+    - ReactiveCocoa/UI (= 4.0.0)
+    - Result (~> 1.0.1)
+  - ReactiveCocoa/Core (4.0.0):
+    - ReactiveCocoa/no-arc
+    - Result (~> 1.0.1)
+  - ReactiveCocoa/no-arc (4.0.0):
+    - Result (~> 1.0.1)
+  - ReactiveCocoa/UI (4.0.0):
+    - ReactiveCocoa/Core
+    - Result (~> 1.0.1)
+  - Result (1.0.2)
   - SnapKit (0.15.0)
 
 DEPENDENCIES:
   - AlamofireObjectMapper (~> 3.0)
   - Kingfisher (~> 2.4)
   - MBProgressHUD
+  - ReactiveCocoa (= 4.0.0)
   - SnapKit (~> 0.15.0)
 
 SPEC CHECKSUMS:
@@ -20,8 +33,10 @@ SPEC CHECKSUMS:
   Kingfisher: 05bf8d04408aaa70fcd2c8c81b9f1d0f1ad313dd
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   ObjectMapper: 4eb08a726e9791a93b2632049951b56a7c17e471
+  ReactiveCocoa: 69be555be30674b07a86b60a91b855063841acc0
+  Result: dd3dd71af3fa2e262f1a999e14fba2c25ec14f16
   SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
 
-PODFILE CHECKSUM: 90dd0e4f2163b48762fc0a1c129eb5989cf39810
+PODFILE CHECKSUM: 302a54efe289596969cff2f6422d4109db673a5f
 
 COCOAPODS: 1.1.0.beta.1

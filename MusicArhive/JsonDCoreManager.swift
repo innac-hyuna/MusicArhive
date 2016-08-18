@@ -17,8 +17,7 @@ class MusicData: NSManagedObject {
     @NSManaged  var title : String?
     @NSManaged  var file : String?
     @NSManaged  var image_file : String?
-    @NSManaged  var duration: String?
-    
+    @NSManaged  var duration: String?    
 }
 
 class JsonDCoreManager {
@@ -34,49 +33,50 @@ class JsonDCoreManager {
         let entityDescription =
             NSEntityDescription.entityForName("MusicData",
                                               inManagedObjectContext: managedObjectContext)
-       
-        
         // Delete all coreData row
-        deleteAll()
+        //deleteAll()
         
             let url = "https://freemusicarchive.org/recent.json"
-            
-            Alamofire.request(.GET, url).responseArray(keyPath: "aTracks")  {[unowned self] (response: Response< [DataMusic], NSError>) in
+           
+           Alamofire.request(.GET, url).responseArray(keyPath: "aTracks")  {[unowned self] (response: Response< [DataMusic], NSError>) in
                 switch response.result {
                     
                 case .Success(let music):
                     
                     for elm in music {
-                        let MData = MusicData(entity: entityDescription!,
+                       let MData = MusicData(entity: entityDescription!,
                                               insertIntoManagedObjectContext: self.managedObjectContext)
                         MData.id = elm.id
                         MData.title = elm.title
                         MData.image_file = elm.image_file
                         MData.duration = elm.duration
                         MData.file = elm.duration
-                        
-                        do {
-                            try  self.managedObjectContext.save()
-                        }
-                        catch{
-                            let err = error as  NSError
-                            print(err)
+                        if !self.filtred(elm.id) {
+                            do {
+                                try  self.managedObjectContext.save()
+                            }
+                            catch{
+                                let err = error as  NSError
+                                print(err)
+                            }
                         }
                     }
                     
                 case .Failure(let error):
+                    callback?([DataMusic]())
                     print(error)
+                   
                 }
                 
                 dispatch_async(dispatch_get_main_queue(), {
-                    callback?(self.getCData())
+                    callback?(self.getCoreData())
                 })
                 
             }
       
     }
     
-    func getCData() -> [DataMusic] {
+    func getCoreData() -> [DataMusic] {
         
         let arrDataM: [DataMusic]!
        
@@ -97,20 +97,38 @@ class JsonDCoreManager {
         
     }
     
+    
     func deleteAll() {
         let fetchRequest = NSFetchRequest(entityName: "MusicData")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-        
-        // delegate objects
         let myManagedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         let myPersistentStoreCoordinator = (UIApplication.sharedApplication().delegate as! AppDelegate).persistentStoreCoordinator
-
+     
         do {
             try myPersistentStoreCoordinator.executeRequest(deleteRequest, withContext: myManagedObjectContext)
         } catch let error as NSError {
             print(error)
         }
+      
     }
+    
+    func filtred(fData: String) -> Bool  {
+        let fetchRequest = NSFetchRequest(entityName:"MusicData")
+        let predicate = NSPredicate(format: "id = %@", fData)
+        fetchRequest.predicate = predicate
         
+        let myManagedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        var result: AnyObject!
+        do {
+           result = try  myManagedObjectContext.executeFetchRequest(fetchRequest)
+        } catch  let error as NSError {
+            print(error) }
+       
+        if result.count != 0 {
+            return true }
+        return false
+    }
+    
+
     
 }

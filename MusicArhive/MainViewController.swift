@@ -8,11 +8,13 @@
 
 import UIKit
 import Kingfisher
+import MBProgressHUD
 
 class MainViewController: UIViewController {
     var tableView: UITableView!
     let cellIdent = "MusicCell"
     var arrData: [DataMusic]!
+    var progressHUD: MBProgressHUD!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,11 +27,21 @@ class MainViewController: UIViewController {
         
         setuoLayout()
         
+        progressHUD = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        progressHUD.labelText = "Loading..."
+        
         JsonDCoreManager.sharedmanager.getData {[unowned self] (resultData) in
             self.arrData = resultData
+            if resultData.first!.id == "0" {
+                let alererror = UIAlertController(title: "No connect", message: "502", preferredStyle: .Alert)
+                alererror.addAction(UIAlertAction(title: "ok", style: .Cancel, handler: { (UIAlertAction) in
+                    
+                }))
+                self.presentViewController(alererror, animated: true, completion: nil)
+            }            
             self.tableView.reloadData()
+            self.progressHUD.hideAnimated(true)
         }
-        
     }
     
     func setuoLayout() {
@@ -48,7 +60,10 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: UITableViewDelegate {
-
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        let MusicPlay = MusicPlayViewController()
+        presentViewController(MusicPlay, animated: true, completion: nil)
+    }
 }
 
 extension MainViewController: UITableViewDataSource{
@@ -66,6 +81,4 @@ extension MainViewController: UITableViewDataSource{
         
         return cell
     }
-
-
 }

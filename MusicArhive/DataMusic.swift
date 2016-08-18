@@ -10,11 +10,12 @@ import Foundation
 import ObjectMapper
 
 class DataMusic: Mappable {
-    var id: String!
-    var title: String!
-    var file: String!
-    var duration: String!
-    var image_file: String!
+    
+    var id = ""
+    var title = ""
+    var file = ""
+    var duration = ""
+    var image_file = ""
     
     required convenience init?(_ map: Map) {
         self.init()

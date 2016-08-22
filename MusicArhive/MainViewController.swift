@@ -15,9 +15,13 @@ class MainViewController: UIViewController {
     let cellIdent = "MusicCell"
     var arrData: [DataMusic]!
     var progressHUD: MBProgressHUD!
+    let limitRow = 5
+    var rowIdA = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "Arhive Music"
         
         tableView = UITableView()
         tableView.registerClass(MusicTableViewCell.self, forCellReuseIdentifier: cellIdent)
@@ -25,14 +29,14 @@ class MainViewController: UIViewController {
         tableView.dataSource = self
         view.addSubview(tableView)
         
-        setuoLayout()
+        setupLayout()
         
         progressHUD = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         progressHUD.labelText = "Loading..."
         
-        JsonDCoreManager.sharedmanager.getData {[unowned self] (resultData) in
+        JsonDCoreManager.sharedmanager.getData(limitRow) {[unowned self] (resultData) in
             self.arrData = resultData
-            if resultData.first!.id == "0" {
+            if resultData.count == 0 {
                 let alererror = UIAlertController(title: "No connect", message: "502", preferredStyle: .Alert)
                 alererror.addAction(UIAlertAction(title: "ok", style: .Cancel, handler: { (UIAlertAction) in
                     
@@ -40,13 +44,15 @@ class MainViewController: UIViewController {
                 self.presentViewController(alererror, animated: true, completion: nil)
             }            
             self.tableView.reloadData()
+            let indPath = NSIndexPath(forRow: self.rowIdA, inSection: 1)
+            self.tableView.selectRowAtIndexPath(indPath, animated: true, scrollPosition: .None)
             self.progressHUD.hideAnimated(true)
         }
     }
     
-    func setuoLayout() {
+    func setupLayout() {
         tableView.snp_makeConstraints { (make) in
-            make.top.equalTo(snp_topLayoutGuideTop).offset(5)
+            make.top.equalTo(snp_topLayoutGuideBottom).offset(0)
             make.left.equalTo(view).offset(0)
             make.right.equalTo(view).offset(0)
             make.bottom.equalTo(view).offset(0)
@@ -62,7 +68,13 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         let MusicPlay = MusicPlayViewController()
-        presentViewController(MusicPlay, animated: true, completion: nil)
+        let urlFile = arrData[indexPath.row].urlFile
+         MusicPlay.dataList = arrData
+         MusicPlay.rowIdA = indexPath.row
+        if urlFile != "" {
+            MusicPlay.urlMusic =  arrData[indexPath.row].urlFile
+            navigationController?.pushViewController(MusicPlay, animated: true)           
+        }
     }
 }
 
@@ -77,7 +89,7 @@ extension MainViewController: UITableViewDataSource{
         let cell: MusicTableViewCell = tableView.dequeueReusableCellWithIdentifier(cellIdent) as! MusicTableViewCell
         if arrData != nil {
             cell.titleLab.text = arrData[indexPath.row].title
-            cell.iconImg.kf_setImageWithURL(NSURL(string: arrData[indexPath.row].image_file))}        
+            cell.iconImg.kf_setImageWithURL(NSURL(string: arrData[indexPath.row].imageFile))}
         
         return cell
     }

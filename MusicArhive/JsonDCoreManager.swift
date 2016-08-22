@@ -22,36 +22,37 @@ class MusicData: NSManagedObject {
 
 class JsonDCoreManager {
     var request = NSFetchRequest(entityName: "MusicData")
+    let dom = "https://freemusicarchive.org"
     let managedObjectContext =
         (UIApplication.sharedApplication().delegate
             as! AppDelegate).managedObjectContext
     
     static let sharedmanager = JsonDCoreManager()
     
-    func getData (callback: (([DataMusic])->())?)   {
+    func getData (limit: Int, callback: (([DataMusic])->())?)   {
         
         let entityDescription =
             NSEntityDescription.entityForName("MusicData",
                                               inManagedObjectContext: managedObjectContext)
-        // Delete all coreData row
-        //deleteAll()
         
-            let url = "https://freemusicarchive.org/recent.json"
+           let url = "https://freemusicarchive.org/recent.json"
            
            Alamofire.request(.GET, url).responseArray(keyPath: "aTracks")  {[unowned self] (response: Response< [DataMusic], NSError>) in
                 switch response.result {
                     
                 case .Success(let music):
                     
-                    for elm in music {
+                    for (ind, elm) in music.enumerate() {
                        let MData = MusicData(entity: entityDescription!,
                                               insertIntoManagedObjectContext: self.managedObjectContext)
                         MData.id = elm.id
                         MData.title = elm.title
-                        MData.image_file = elm.image_file
+                        MData.image_file = elm.imageFile
                         MData.duration = elm.duration
-                        MData.file = elm.duration
-                        if !self.filtred(elm.id) {
+                       // MData.file = elm.urlFile
+                        MData.file = HttpDownloader.loadFileSync(elm.urlFile)
+                        
+                       if !self.filtred(elm.id) {
                             do {
                                 try  self.managedObjectContext.save()
                             }
@@ -60,6 +61,8 @@ class JsonDCoreManager {
                                 print(err)
                             }
                         }
+                        
+                        if ind > limit { break }
                     }
                     
                 case .Failure(let error):
@@ -67,13 +70,11 @@ class JsonDCoreManager {
                     print(error)
                    
                 }
-                
                 dispatch_async(dispatch_get_main_queue(), {
                     callback?(self.getCoreData())
                 })
                 
-            }
-      
+            }      
     }
     
     func getCoreData() -> [DataMusic] {
@@ -88,15 +89,15 @@ class JsonDCoreManager {
             elData.id =  element.valueForKey("id") as! String
             elData.title = element.valueForKey("title") as! String
             elData.duration = element.valueForKey("duration") as! String
-            elData.image_file = element.valueForKey("image_file") as! String
+            elData.urlFile = element.valueForKey("file") as! String
+            elData.imageFile = element.valueForKey("image_file") as! String
             
             return elData
         })
         
      return arrDataM
         
-    }
-    
+    }    
     
     func deleteAll() {
         let fetchRequest = NSFetchRequest(entityName: "MusicData")

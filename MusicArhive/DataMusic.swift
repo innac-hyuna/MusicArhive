@@ -13,9 +13,9 @@ class DataMusic: Mappable {
     
     var id = ""
     var title = ""
-    var file = ""
+    var urlFile = ""
     var duration = ""
-    var image_file = ""
+    var imageFile = ""
     
     required convenience init?(_ map: Map) {
         self.init()
@@ -25,9 +25,9 @@ class DataMusic: Mappable {
         
         id <- map["track_id"]
         title <- map["track_title"]
-        file <- map["track_file"]
+        urlFile <- map["track_file_url"]
         duration <- map["track_duration"]
-        image_file <- map["track_image_file"]
+        imageFile <- map["track_image_file"]
     }
    
 }

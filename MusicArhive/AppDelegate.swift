@@ -16,9 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
        let mViewController = MainViewController()
+       let mainNav = UINavigationController(rootViewController: mViewController)
        window = UIWindow(frame: UIScreen.mainScreen().bounds)
-       window?.rootViewController = mViewController
+       window?.rootViewController = mainNav
      //  window?.backgroundColor = UIColor(patternImage: <#T##UIImage#>)
        window?.makeKeyAndVisible()
         

@@ -10,6 +10,9 @@
 		0317C591F903778765E86C36 /* Pods_MusicArhive_MusicArhiveUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54360159B1B3E7CDB47D65B7 /* Pods_MusicArhive_MusicArhiveUITests.framework */; };
 		0810B167EC4BE0475523ACE2 /* Pods_MusicArhive_MusicArhiveTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F59F61F5F39B61B9008884 /* Pods_MusicArhive_MusicArhiveTests.framework */; };
 		5F8F47BC532C27C3F38990F1 /* Pods_MusicArhive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A6EBC4825D554883F85D358 /* Pods_MusicArhive.framework */; };
+		DA01CAE11D67593D00DC5277 /* DiskStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA01CADF1D67593D00DC5277 /* DiskStatus.swift */; };
+		DA01CAE21D67593D00DC5277 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA01CAE01D67593D00DC5277 /* Downloader.swift */; };
+		DA3055831D6B33C800099245 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3055821D6B33C800099245 /* Extension.swift */; };
 		DADD921F1D631B9C009A6736 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD921E1D631B9C009A6736 /* AppDelegate.swift */; };
 		DADD92211D631B9C009A6736 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADD92201D631B9C009A6736 /* MainViewController.swift */; };
 		DADD92271D631B9C009A6736 /* MusicArhive.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DADD92251D631B9C009A6736 /* MusicArhive.xcdatamodeld */; };
@@ -51,6 +54,9 @@
 		5F9953418A3E954829D51C75 /* Pods-MusicArhive-MusicArhiveUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicArhive-MusicArhiveUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MusicArhive-MusicArhiveUITests/Pods-MusicArhive-MusicArhiveUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		714803A255011F8C0AE64F10 /* Pods-MusicArhive-MusicArhiveTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicArhive-MusicArhiveTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MusicArhive-MusicArhiveTests/Pods-MusicArhive-MusicArhiveTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7629488389E362F490202B43 /* Pods-MusicArhive-MusicArhiveTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicArhive-MusicArhiveTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MusicArhive-MusicArhiveTests/Pods-MusicArhive-MusicArhiveTests.release.xcconfig"; sourceTree = "<group>"; };
+		DA01CADF1D67593D00DC5277 /* DiskStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiskStatus.swift; sourceTree = "<group>"; };
+		DA01CAE01D67593D00DC5277 /* Downloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
+		DA3055821D6B33C800099245 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		DADD921B1D631B9C009A6736 /* MusicArhive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicArhive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DADD921E1D631B9C009A6736 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DADD92201D631B9C009A6736 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +128,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		DA01CADC1D67588900DC5277 /* Downloader */ = {
+			isa = PBXGroup;
+			children = (
+				DA01CADF1D67593D00DC5277 /* DiskStatus.swift */,
+				DA01CAE01D67593D00DC5277 /* Downloader.swift */,
+			);
+			name = Downloader;
+			sourceTree = "<group>";
+		};
 		DADD92121D631B9C009A6736 = {
 			isa = PBXGroup;
 			children = (
@@ -147,14 +162,16 @@
 		DADD921D1D631B9C009A6736 /* MusicArhive */ = {
 			isa = PBXGroup;
 			children = (
+				DADD921E1D631B9C009A6736 /* AppDelegate.swift */,
 				DADD925A1D6376C4009A6736 /* Cell */,
 				DADD92501D6330BE009A6736 /* ViewControllers */,
 				DADD924F1D6330B0009A6736 /* Model */,
-				DADD921E1D631B9C009A6736 /* AppDelegate.swift */,
+				DA01CADC1D67588900DC5277 /* Downloader */,
 				DADD92281D631B9C009A6736 /* Assets.xcassets */,
 				DADD922A1D631B9C009A6736 /* LaunchScreen.storyboard */,
 				DADD922D1D631B9C009A6736 /* Info.plist */,
 				DADD92251D631B9C009A6736 /* MusicArhive.xcdatamodeld */,
+				DA3055821D6B33C800099245 /* Extension.swift */,
 			);
 			path = MusicArhive;
 			sourceTree = "<group>";
@@ -481,13 +498,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA01CAE21D67593D00DC5277 /* Downloader.swift in Sources */,
 				DADD92211D631B9C009A6736 /* MainViewController.swift in Sources */,
 				DADE99EA1D65E2730043B7B3 /* MusicManager.swift in Sources */,
 				DADD92271D631B9C009A6736 /* MusicArhive.xcdatamodeld in Sources */,
+				DA01CAE11D67593D00DC5277 /* DiskStatus.swift in Sources */,
 				DADD92521D633164009A6736 /* JsonDCoreManager.swift in Sources */,
 				DADD92571D6343B3009A6736 /* DataMusic.swift in Sources */,
 				DADD921F1D631B9C009A6736 /* AppDelegate.swift in Sources */,
 				DADE99E81D65DBDE0043B7B3 /* MusicPlayViewController.swift in Sources */,
+				DA3055831D6B33C800099245 /* Extension.swift in Sources */,
 				DADD925C1D637708009A6736 /* MusicTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

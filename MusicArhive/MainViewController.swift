@@ -16,17 +16,19 @@ class MainViewController: UIViewController {
     var arrData: [DataMusic]!
     var progressHUD: MBProgressHUD!
     let limitRow = 5
-    var rowIdA = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Arhive Music"
         
+        RowStuct.delegate = self
+        
         tableView = UITableView()
         tableView.registerClass(MusicTableViewCell.self, forCellReuseIdentifier: cellIdent)
         tableView.delegate = self
         tableView.dataSource = self
+        
         view.addSubview(tableView)
         
         setupLayout()
@@ -39,17 +41,20 @@ class MainViewController: UIViewController {
             if resultData.count == 0 {
                 let alererror = UIAlertController(title: "No connect", message: "502", preferredStyle: .Alert)
                 alererror.addAction(UIAlertAction(title: "ok", style: .Cancel, handler: { (UIAlertAction) in
-                    
+                 self.viewDidLoad()
                 }))
                 self.presentViewController(alererror, animated: true, completion: nil)
             }            
             self.tableView.reloadData()
-            let indPath = NSIndexPath(forRow: self.rowIdA, inSection: 1)
-            self.tableView.selectRowAtIndexPath(indPath, animated: true, scrollPosition: .None)
             self.progressHUD.hideAnimated(true)
         }
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+   
     func setupLayout() {
         tableView.snp_makeConstraints { (make) in
             make.top.equalTo(snp_topLayoutGuideBottom).offset(0)
@@ -58,23 +63,15 @@ class MainViewController: UIViewController {
             make.bottom.equalTo(view).offset(0)
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 }
 
 extension MainViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
-        let MusicPlay = MusicPlayViewController()
-        let urlFile = arrData[indexPath.row].urlFile
+                
+         let MusicPlay = MusicPlayViewController()
          MusicPlay.dataList = arrData
          MusicPlay.rowIdA = indexPath.row
-        if urlFile != "" {
-            MusicPlay.urlMusic =  arrData[indexPath.row].urlFile
-            navigationController?.pushViewController(MusicPlay, animated: true)           
-        }
+         navigationController?.pushViewController(MusicPlay, animated: true)
     }
 }
 
@@ -87,10 +84,18 @@ extension MainViewController: UITableViewDataSource{
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell: MusicTableViewCell = tableView.dequeueReusableCellWithIdentifier(cellIdent) as! MusicTableViewCell
+       
         if arrData != nil {
             cell.titleLab.text = arrData[indexPath.row].title
             cell.iconImg.kf_setImageWithURL(NSURL(string: arrData[indexPath.row].imageFile))}
-        
         return cell
+    }
+}
+
+extension MainViewController: ChangeIdRow {
+    
+    func didCangeRow(row: Int) {
+        let indPath = NSIndexPath(forRow: row, inSection: 0)
+        tableView.selectRowAtIndexPath(indPath, animated: false, scrollPosition: .None)
     }
 }

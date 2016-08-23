@@ -1,4 +1,4 @@
-//
+
 //  MusicManager.swift
 //  MusicArhive
 //
@@ -9,9 +9,14 @@
 import Foundation
 import AVFoundation
 
+protocol FinishDelegate {
+    func onFinish(result: Bool)
+}
+
 class MusicManager: NSObject {
     
-    static let shared = MusicManager()
+    static let shared = MusicManager()   
+    var delegate: FinishDelegate?
     var audioPlayer = AVAudioPlayer()
     
     func setAPlayer(urlAll: String)  {
@@ -55,21 +60,14 @@ class MusicManager: NSObject {
     
     func pause() {
         audioPlayer.pause()
-    }
-    
-    
-    func randomNumber(icount: Int) -> Int {
-        let range = 0...icount
-        let min = range.startIndex
-        let max = range.endIndex
-        return Int(arc4random_uniform(UInt32(max - min)))
     }    
+    
 }
 
 extension MusicManager: AVAudioPlayerDelegate {
     
     func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
-        print("Finish playing")
+      self.delegate?.onFinish(true)
     }
     
     func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: NSError?) {

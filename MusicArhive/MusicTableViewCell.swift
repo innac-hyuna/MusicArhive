@@ -23,13 +23,12 @@ class MusicTableViewCell: UITableViewCell {
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        
     }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+        super.init(style: style, reuseIdentifier: reuseIdentifier)        
+       
         titleLab = UILabel()
         contentView.addSubview(titleLab)
         

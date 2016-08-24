@@ -48,24 +48,22 @@ class MusicTableViewCell: UITableViewCell {
     func setapLayout() {
         
         iconImg.snp_makeConstraints { (make) in
-            make.top.equalTo(contentView).offset(5)
+            make.centerY.equalTo(contentView)
             make.left.equalTo(contentView).offset(5)
-            make.width.equalTo(50)
-            make.height.equalTo(50)
+            make.width.equalTo(40)
+            make.height.equalTo(40)
         }
-        
-        titleLab.snp_makeConstraints { (make) in
-            make.top.equalTo(contentView).offset(10)
-            make.left.equalTo(iconImg.snp_right).offset(5)
-            make.right.equalTo(contentView).offset(-5)
-            make.height.lessThanOrEqualTo(40)}
-        
         durationLab.snp_makeConstraints { (make) in
-            make.top.equalTo(titleLab).offset(3)
-            make.right.equalTo(contentView).offset(5)
+            make.centerY.equalTo(contentView)
+            make.right.equalTo(contentView).offset(-10)
             make.width.equalTo(50)
-            make.height.equalTo(10)
+            make.height.equalTo(40)
         }
-    
+        titleLab.snp_makeConstraints { (make) in
+            make.centerY.equalTo(contentView)
+            make.left.equalTo(iconImg.snp_right).offset(5)
+            make.right.equalTo(durationLab.snp_left).offset(-5)
+            make.height.lessThanOrEqualTo(40)
+        }
     }
 }

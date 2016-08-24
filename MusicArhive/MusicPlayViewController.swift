@@ -10,17 +10,6 @@ import UIKit
 import SnapKit
 import ReactiveCocoa
 
-protocol ChangeIdRow: class {
-    func didCangeRow(row: Int)
-}
-
-struct RowStuct {
-    static var delegate: ChangeIdRow!
-    static func cangeRow(rowId: Int) {
-        delegate.didCangeRow(rowId)
-    }
-}
-
 
 class MusicPlayViewController: UIViewController {
     
@@ -31,13 +20,10 @@ class MusicPlayViewController: UIViewController {
     var volumeSlider: UISlider!
     var timeSlider: UISlider!
     var timeLabel: UILabel!
-    var audioTimer: NSTimer!
     var imagIcon: UIImageView!
     var volUser: Float!
     var dataList: [DataMusic]!
     var rowIdA = 0
-    static  var delegate: ChangeIdRow!
-    var tagPlay: Int!
     
     override func viewDidLoad() {
         
@@ -45,62 +31,54 @@ class MusicPlayViewController: UIViewController {
         
         let defaultUser = NSUserDefaults()
         volUser = defaultUser.floatForKey("volumeUser")
-        tagPlay = defaultUser.integerForKey("volumeUser")
         
         title = dataList[rowIdA].title
         
-        MusicManager.shared.setAPlayer(dataList[rowIdA].urlFile)
-        
-        MusicManager.shared.delegate = self
+        MusicManager.shared.delegateFinish = self
         
         view.backgroundColor = UIColor.whiteColor()
         
         buttonPlay = UIButton(type: .Custom) as UIButton
-        buttonPlay.tag = 0
         buttonPlay.setImage(UIImage(named:"play"), forState: .Normal)
-        buttonPlay.rac_signalForControlEvents(.TouchUpInside)
-            .subscribeNext { button in
-                let buttonPl = button as! UIButton
-                if buttonPl.tag == 0 {
-                    self.setupTimerPlay()
+        let playSignal = buttonPlay.rac_signalForControlEvents(.TouchUpInside)
+            playSignal.subscribeNext { [unowned self]  button in
+                
+                if !MusicManager.shared.audioPlayer.playing {
+                   self.play()
                 } else {
-                    MusicManager.shared.pause()
+                   MusicManager.shared.pause()
                    self.setPlayButton()
-                   }
+                }
         }
         view.addSubview(buttonPlay)
         
         buttonPre = UIButton(type: .Custom)
         buttonPre.setImage(UIImage(named:"pre"), forState: .Normal)
-        buttonPre.rac_signalForControlEvents(.TouchUpInside)
-            .subscribeNext { [unowned self] _ in
-                self.activRow(self.rowIdA == 0 ? self.dataList.count - 1 : self.rowIdA - 1)
-                self.title = self.dataList[self.rowIdA].title
-                MusicManager.shared.setAPlayer(self.dataList[self.rowIdA].urlFile)
-                self.setupTimerPlay()
-               
+        let preSiganl = buttonPre.rac_signalForControlEvents(.TouchUpInside)
+            preSiganl.subscribeNext { [unowned self]  _ in
+             MusicManager.shared.listPrew()
+             self.play()
         }
         view.addSubview(buttonPre)
         
         buttonNext = UIButton()
         buttonNext.setImage(UIImage(named: "next"), forState: .Normal)
-        buttonNext.rac_signalForControlEvents(.TouchUpInside)
-            .subscribeNext { [unowned self] _ in
-                self.listPlayNext()
+        let nextSugnal = buttonNext.rac_signalForControlEvents(.TouchUpInside)
+            nextSugnal.subscribeNext {[unowned self] _ in
+             MusicManager.shared.listNext()
+             self.play()
         }
         view.addSubview(buttonNext)
         
         buttonRandom = UIButton()
-        buttonRandom.tag = tagPlay
-        buttonRandom.setImage(UIImage(named: tagPlay == 0 ? "random" : "listplay"), forState: .Normal)
+        buttonRandom.tag = defaultUser.integerForKey("tagUser")
+        buttonRandom.setImage(UIImage(named: buttonRandom.tag == 0 ? "random" : "listplay"), forState: .Normal)
         buttonRandom.rac_signalForControlEvents(.TouchUpInside)
-            .subscribeNext { [unowned self] button in
+            .subscribeNext { button in
                 let buttonRa = button as! UIButton
-                buttonRa.tag = self.tagPlay
-                buttonRa.setImage(UIImage(named:  button.tag == 0 ? "random" : "listplay"), forState: .Normal)
-                defaultUser.setInteger(self.tagPlay, forKey: "volumeUser")
-                self.setupTimerPlay()
-               
+                buttonRa.tag =  buttonRa.tag == 0 ? 1 : 0
+                buttonRa.setImage(UIImage(named:  buttonRa.tag == 0 ? "random" : "listplay"), forState: .Normal)               
+                defaultUser.setInteger(buttonRa.tag, forKey: "tagUser")
         }
         
         view.addSubview(buttonRandom)
@@ -127,8 +105,16 @@ class MusicPlayViewController: UIViewController {
         
         timeLabel = UILabel()
         view.addSubview(timeLabel)
+        
+        
+        if MusicManager.shared.dataList == nil ||  MusicManager.shared.rowIdA != rowIdA {
+            MusicManager.shared.setAPlayer(dataList, row: rowIdA)
+        } else {
+            play() }
        
+        
         setupLayout()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -136,52 +122,24 @@ class MusicPlayViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    func activRow(rowId: Int) {
-        self.rowIdA = rowId
-        RowStuct.cangeRow(rowId)
-    }
-    
     func setPlayButton() {
-        buttonPlay.setImage(UIImage(named: "play"), forState: .Normal)
-        buttonPlay.tag = 0
+         buttonPlay.setImage(UIImage(named: "play"), forState: .Normal)
     }
     
     func setPauseButton() {
-        buttonPlay.setImage(UIImage(named: "pause"), forState: .Normal)
-        buttonPlay.tag = 1
+         buttonPlay.setImage(UIImage(named: "pause"), forState: .Normal)
     }
     
-    func randomPlay() {
-        activRow((dataList.count - 1).randomNumber())
-        title = dataList[rowIdA].title
-        MusicManager.shared.setAPlayer(dataList[rowIdA].urlFile)
-        setupTimerPlay()
-       
-        
-    }
-    
-    func listPlayNext() {
-        activRow(rowIdA == dataList.count - 1 ? 0 : rowIdA + 1)
-        title = dataList[rowIdA].title
-        MusicManager.shared.setAPlayer(dataList[rowIdA].urlFile)
-        
-        
-    }
-    
-    func setupTimerPlay() {
-        if !MusicManager.shared.audioPlayer.playing {
-            self.audioTimer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(MusicPlayViewController.leftTime), userInfo: nil, repeats: true)
-            self.timeSlider.maximumValue = MusicManager.shared.getDurataionFloat()
+    func play() {
+         timer()
          MusicManager.shared.play()
-         setPauseButton()}
     }
-    
-    func leftTime() {
-        timeLabel.text = MusicManager.shared.leftTime()
+    func timer() {        
         timeSlider.value = Float(MusicManager.shared.audioPlayer.currentTime)
+        timeSlider.maximumValue = MusicManager.shared.getDurataionFloat()
+        self.setPauseButton()
+        title = dataList[MusicManager.shared.rowIdA].title
     }
-    
     func setupLayout() {
         
         buttonPre.snp_makeConstraints { (make) in
@@ -229,9 +187,15 @@ class MusicPlayViewController: UIViewController {
     }
 }
 
-extension MusicPlayViewController : FinishDelegate {
+extension MusicPlayViewController : MusicDelegate  {
     
     func onFinish(result: Bool) {
-        buttonRandom.tag == 0 ? randomPlay() : listPlayNext()
+        timer() 
     }
+    
+    func didTime(time: String) {
+        timeLabel.text = time
+        timeSlider.value = Float(MusicManager.shared.audioPlayer.currentTime)
+    }
+
 }

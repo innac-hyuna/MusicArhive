@@ -22,7 +22,7 @@ class MainViewController: UIViewController {
         
         self.title = "Arhive Music"
         
-        RowStuct.delegate = self
+        MusicManager.shared.delegateChage = self
         
         tableView = UITableView()
         tableView.registerClass(MusicTableViewCell.self, forCellReuseIdentifier: cellIdent)
@@ -67,7 +67,7 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
-                
+       
          let MusicPlay = MusicPlayViewController()
          MusicPlay.dataList = arrData
          MusicPlay.rowIdA = indexPath.row
@@ -87,15 +87,22 @@ extension MainViewController: UITableViewDataSource{
        
         if arrData != nil {
             cell.titleLab.text = arrData[indexPath.row].title
-            cell.iconImg.kf_setImageWithURL(NSURL(string: arrData[indexPath.row].imageFile))}
+            cell.iconImg.kf_setImageWithURL(NSURL(string: arrData[indexPath.row].imageFile))
+            cell.durationLab.text =  arrData[indexPath.row].duration
+        }
         return cell
     }
 }
 
-extension MainViewController: ChangeIdRow {
+extension MainViewController: MusicMainDelegate {
     
     func didCangeRow(row: Int) {
-        let indPath = NSIndexPath(forRow: row, inSection: 0)
-        tableView.selectRowAtIndexPath(indPath, animated: false, scrollPosition: .None)
+        (tableView.cellForRowAtIndexPath(NSIndexPath(forRow: MusicManager.shared.rowIdA, inSection: 0)) as? MusicTableViewCell)?.durationLab.text = ""
+        let indexR =  NSIndexPath(forRow: row, inSection: 0)
+        tableView.selectRowAtIndexPath(indexR, animated: false, scrollPosition: .None)
     }
+    
+    func didTime(time: String){
+        (tableView.cellForRowAtIndexPath(NSIndexPath(forRow: MusicManager.shared.rowIdA, inSection: 0)) as? MusicTableViewCell)?.durationLab.text = time
+    }  
 }

@@ -11,7 +11,8 @@ pod 'Kingfisher', '~> 2.4'
 pod 'SnapKit', '~> 0.15.0'
 pod 'ReactiveCocoa', '= 4.0.0'
 
-target ‘MusicArhiveTests' do
+
+target 'MusicArhiveTests' do
 
 # Pods for testing
 end

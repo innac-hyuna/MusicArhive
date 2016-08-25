@@ -24,15 +24,24 @@ class MusicTableViewCell: UITableViewCell {
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
+        if selected {
+            contentView.backgroundColor = UIColor.bgSelectedFildColor()
+        } else {
+            contentView.backgroundColor = UIColor.bgFildColor()
+        }
     }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)        
        
         titleLab = UILabel()
+        titleLab.textColor = UIColor.textColor()
+        titleLab.font = UIFont.MyTextFont(15)
         contentView.addSubview(titleLab)
         
         durationLab = UILabel()
+        durationLab.textColor = UIColor.textColor()
+        durationLab.font = UIFont.MyTextFont(15)
         contentView.addSubview(durationLab)
         
         iconImg =  UIImageView()

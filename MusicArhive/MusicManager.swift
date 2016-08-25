@@ -9,19 +9,19 @@
 import Foundation
 import AVFoundation
 
-protocol MusicDelegate {
+protocol MusicDelegate: class {
     func onFinish(result: Bool)
     func didTime(time: String)
 }
-protocol MusicMainDelegate {
+protocol MusicMainDelegate: class {
     func didCangeRow(row: Int)
     func didTime(time: String)
 }
 class MusicManager: NSObject {
     
     static let shared = MusicManager()   
-    var delegateFinish: MusicDelegate?
-    var delegateChage: MusicMainDelegate?
+    weak var delegateFinish: MusicDelegate?
+    weak var delegateChage: MusicMainDelegate?
     var audioPlayer = AVAudioPlayer()
     var dataList: [DataMusic]!
     var audioTimer: NSTimer!

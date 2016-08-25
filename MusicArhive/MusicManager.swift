@@ -9,19 +9,11 @@
 import Foundation
 import AVFoundation
 
-protocol MusicDelegate: class {
-    func onFinish(result: Bool)
-    func didTime(time: String)
-}
-protocol MusicMainDelegate: class {
-    func didCangeRow(row: Int)
-    func didTime(time: String)
-}
+
+
 class MusicManager: NSObject {
     
-    static let shared = MusicManager()   
-    weak var delegateFinish: MusicDelegate?
-    weak var delegateChage: MusicMainDelegate?
+    static let shared = MusicManager()
     var audioPlayer = AVAudioPlayer()
     var dataList: [DataMusic]!
     var audioTimer: NSTimer!
@@ -49,8 +41,7 @@ class MusicManager: NSObject {
     }
     
     func lTime()  {
-        self.delegateChage?.didTime((audioPlayer.duration - audioPlayer.currentTime).strigTime)
-        self.delegateFinish?.didTime((audioPlayer.duration - audioPlayer.currentTime).strigTime)
+        NSNotificationCenter.defaultCenter().postNotificationName("NTimer", object: (audioPlayer.duration - audioPlayer.currentTime).strigTime)
     }
     
     func getDurataionFloat() -> Float {
@@ -90,7 +81,7 @@ class MusicManager: NSObject {
     }  
     
     func activRow(rowId: Int) {
-        self.delegateChage?.didCangeRow(rowId)
+        NSNotificationCenter.defaultCenter().postNotificationName("NRowCahge", object: rowId)
         self.rowIdA = rowId
     }
 }
@@ -101,7 +92,7 @@ extension MusicManager: AVAudioPlayerDelegate {
         let defaultUser = NSUserDefaults()
         defaultUser.integerForKey("tagUser") == 0 ? randomPlay() : listNext()
         play()
-        self.delegateFinish?.onFinish(true)
+        NSNotificationCenter.defaultCenter().postNotificationName("NFinish", object: (true))
     }
     
     func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: NSError?) {

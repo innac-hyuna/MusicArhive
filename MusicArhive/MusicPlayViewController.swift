@@ -36,8 +36,6 @@ class MusicPlayViewController: UIViewController {
         
         title = dataList[rowIdA].title
         
-        MusicManager.shared.delegateFinish = self
-        
         imagIcon = UIImageView()
         imagIcon.kf_setImageWithURL(NSURL(string: dataList[rowIdA].imageFile))
         view.addSubview(imagIcon)
@@ -119,11 +117,32 @@ class MusicPlayViewController: UIViewController {
         
         setupLayout()
         
+       NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector ( MusicPlayViewController.didTime(_:) ), name: "NTimer", object: nil)
+       NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector ( MusicPlayViewController.onFinish(_:) ), name: "NFinish", object: nil)
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func onFinish(notification: NSNotification) {
+        
+        guard (notification.object as? Bool) != nil else
+        { return }
+        
+        timer()
+    }
+    
+    func didTime(notification: NSNotification) {
+        
+        guard let time = notification.object as? String else
+        { return }
+        
+        timeLabel.text = time
+        imagIcon.kf_setImageWithURL(NSURL(string: dataList[MusicManager.shared.rowIdA].imageFile))
+        timeSlider.value = Float(MusicManager.shared.audioPlayer.currentTime)
     }
     
     func setPlayButton() {
@@ -138,12 +157,14 @@ class MusicPlayViewController: UIViewController {
          timer()
          MusicManager.shared.play()
     }
+    
     func timer() {        
         timeSlider.value = Float(MusicManager.shared.audioPlayer.currentTime)
         timeSlider.maximumValue = MusicManager.shared.getDurataionFloat()
         self.setPauseButton()
         title = dataList[MusicManager.shared.rowIdA].title
     }
+    
     func setupLayout() {
         
         buttonPre.snp_makeConstraints { (make) in
@@ -198,16 +219,4 @@ class MusicPlayViewController: UIViewController {
     }
 }
 
-extension MusicPlayViewController : MusicDelegate  {
-    
-    func onFinish(result: Bool) {
-        timer() 
-    }
-    
-    func didTime(time: String) {
-        timeLabel.text = time
-        imagIcon.kf_setImageWithURL(NSURL(string: dataList[MusicManager.shared.rowIdA].imageFile))
-        timeSlider.value = Float(MusicManager.shared.audioPlayer.currentTime)
-    }
 
-}

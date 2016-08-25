@@ -22,7 +22,6 @@ class MainViewController: UIViewController {
         
         self.title = "Arhive Music"
         
-        MusicManager.shared.delegateChage = self
         
         tableView = UITableView()
         tableView.backgroundColor = UIColor.bgGridColor()
@@ -49,6 +48,9 @@ class MainViewController: UIViewController {
             self.tableView.reloadData()
             self.progressHUD.hideAnimated(true)
         }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector ( MainViewController.didCangeRow(_:) ), name: "NRowCahge", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector ( MainViewController.didTime(_:) ), name: "NTimer", object: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -63,6 +65,23 @@ class MainViewController: UIViewController {
             make.right.equalTo(view).offset(0)
             make.bottom.equalTo(view).offset(0)
         }
+    }
+    
+    func didCangeRow(notification: NSNotification) {
+      
+        guard let row = notification.object as? Int else
+        { return }
+        
+        let indexR =  NSIndexPath(forRow: row, inSection: 0)
+        tableView.selectRowAtIndexPath(indexR, animated: false, scrollPosition: .None)
+    }
+    
+    func didTime(notification: NSNotification) {
+        
+        guard let time = notification.object as? String else
+        { return }
+        
+        (tableView.cellForRowAtIndexPath(NSIndexPath(forRow: MusicManager.shared.rowIdA, inSection: 0)) as? MusicTableViewCell)?.durationLab.text = time
     }
 }
 
@@ -95,14 +114,3 @@ extension MainViewController: UITableViewDataSource{
     }
 }
 
-extension MainViewController: MusicMainDelegate {
-    
-    func didCangeRow(row: Int) {
-        let indexR =  NSIndexPath(forRow: row, inSection: 0)
-        tableView.selectRowAtIndexPath(indexR, animated: false, scrollPosition: .None)
-    }
-    
-    func didTime(time: String) {
-        (tableView.cellForRowAtIndexPath(NSIndexPath(forRow: MusicManager.shared.rowIdA, inSection: 0)) as? MusicTableViewCell)?.durationLab.text = time
-    }  
-}

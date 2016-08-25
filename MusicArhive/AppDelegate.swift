@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        let mainNav = UINavigationController(rootViewController: mViewController)
        window = UIWindow(frame: UIScreen.mainScreen().bounds)
        window?.rootViewController = mainNav
-     //  window?.backgroundColor = UIColor(patternImage: <#T##UIImage#>)
+       window?.backgroundColor = UIColor.bgColor()
        window?.makeKeyAndVisible()
         
        return true

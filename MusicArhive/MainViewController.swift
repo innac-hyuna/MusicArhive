@@ -25,7 +25,6 @@ class MainViewController: UIViewController {
         MusicManager.shared.delegateChage = self
         
         tableView = UITableView()
-        tableView.backgroundColor = UIColor.bgGridColor()
         tableView.registerClass(MusicTableViewCell.self, forCellReuseIdentifier: cellIdent)
         tableView.delegate = self
         tableView.dataSource = self
@@ -98,11 +97,12 @@ extension MainViewController: UITableViewDataSource{
 extension MainViewController: MusicMainDelegate {
     
     func didCangeRow(row: Int) {
+        (tableView.cellForRowAtIndexPath(NSIndexPath(forRow: MusicManager.shared.rowIdA, inSection: 0)) as? MusicTableViewCell)?.durationLab.text = ""
         let indexR =  NSIndexPath(forRow: row, inSection: 0)
         tableView.selectRowAtIndexPath(indexR, animated: false, scrollPosition: .None)
     }
     
-    func didTime(time: String) {
+    func didTime(time: String){
         (tableView.cellForRowAtIndexPath(NSIndexPath(forRow: MusicManager.shared.rowIdA, inSection: 0)) as? MusicTableViewCell)?.durationLab.text = time
     }  
 }

@@ -29,8 +29,6 @@ class MusicPlayViewController: UIViewController {
         
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.bgFildColor()
-        
         let defaultUser = NSUserDefaults()
         volUser = defaultUser.floatForKey("volumeUser")
         
@@ -38,9 +36,7 @@ class MusicPlayViewController: UIViewController {
         
         MusicManager.shared.delegateFinish = self
         
-        imagIcon = UIImageView()
-        imagIcon.kf_setImageWithURL(NSURL(string: dataList[rowIdA].imageFile))
-        view.addSubview(imagIcon)
+        view.backgroundColor = UIColor.whiteColor()
         
         buttonPlay = UIButton(type: .Custom) as UIButton
         buttonPlay.setImage(UIImage(named:"play"), forState: .Normal)
@@ -188,13 +184,6 @@ class MusicPlayViewController: UIViewController {
             make.right.equalTo(view.snp_right).offset(-10)
             make.height.equalTo(44)
         }
-        
-        imagIcon.snp_makeConstraints { (make) in
-            make.top.equalTo(timeSlider.snp_bottom).offset(10)
-            make.left.equalTo(view).offset(10)
-            make.right.equalTo(view.snp_right).offset(-10)
-            make.bottom.equalTo(view.snp_bottom).offset(-10)
-         }
     }
 }
 
@@ -206,7 +195,6 @@ extension MusicPlayViewController : MusicDelegate  {
     
     func didTime(time: String) {
         timeLabel.text = time
-        imagIcon.kf_setImageWithURL(NSURL(string: dataList[MusicManager.shared.rowIdA].imageFile))
         timeSlider.value = Float(MusicManager.shared.audioPlayer.currentTime)
     }
 

@@ -112,8 +112,7 @@ class MusicPlayViewController: UIViewController {
         if MusicManager.shared.dataList == nil ||  MusicManager.shared.rowIdA != rowIdA {
             MusicManager.shared.setAPlayer(dataList, row: rowIdA)
         } else {
-            play() }
-       
+            play() }       
         
         setupLayout()
         

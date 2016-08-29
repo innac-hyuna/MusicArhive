@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 import AlamofireObjectMapper
 import CoreData
+import MagicalRecord
 
 @objc( MusicData )
 class MusicData: NSManagedObject {
@@ -26,42 +27,32 @@ class JsonDCoreManager {
     let managedObjectContext =
         (UIApplication.sharedApplication().delegate
             as! AppDelegate).managedObjectContext
+    let managedObjectRootContext =
+        (UIApplication.sharedApplication().delegate
+            as! AppDelegate).managedObjectRootContext
     
     static let sharedmanager = JsonDCoreManager()
     
     func getData (limit: Int, callback: (([DataMusic])->())?)   {
-        
-        let entityDescription =
-            NSEntityDescription.entityForName("MusicData",
-                                              inManagedObjectContext: managedObjectContext)
-        
+ 
            let url = "https://freemusicarchive.org/recent.json"
-           
+        
            Alamofire.request(.GET, url).responseArray(keyPath: "aTracks")  {[unowned self] (response: Response< [DataMusic], NSError>) in
                 switch response.result {
                     
                 case .Success(let music):
                     
                     for (ind, elm) in music.enumerate() {
-                       let MData = MusicData(entity: entityDescription!,
-                                              insertIntoManagedObjectContext: self.managedObjectContext)
-                        MData.id = elm.id
-                        MData.title = elm.title
-                        MData.image_file = elm.imageFile
-                        MData.duration = elm.duration
-                       // MData.file = elm.urlFile
-                        MData.file = HttpDownloader.loadFileSync(elm.urlFile)
-                        
-                       if !self.filtred(elm.id) {
-                            do {
-                                try  self.managedObjectContext.save()
-                            }
-                            catch{
-                                let err = error as  NSError
-                                print(err)
-                            }
-                        }
-                        
+                        let MData = MusicData.MR_createEntityInContext(self.managedObjectContext)
+                     
+                        if !self.filtred(elm.id) {
+                            MData?.id = elm.id
+                            MData?.title = elm.title
+                            MData?.image_file = elm.imageFile
+                            MData?.duration = elm.duration
+                            MData?.file = HttpDownloader.loadFileSync(elm.urlFile)
+                     
+                    } //MR_save()
                         if ind > limit { break }
                     }
                     
@@ -71,36 +62,47 @@ class JsonDCoreManager {
                    
                 }
                 dispatch_async(dispatch_get_main_queue(), {
+                   /* self.managedObjectContext.MR_saveToPersistentStoreWithCompletion({ (resBool, err) in
+                        print(resBool)
+                        print(err)
+                    })*/
+                 
+                   try!  self.managedObjectContext.save()
+                         
+                    
                     callback?(self.getCoreData())
-                })
+               })
                 
-            }      
+            }
+       
     }
     
     func getCoreData() -> [DataMusic] {
         
         let arrDataM: [DataMusic]!
        
-        let result = try! self.managedObjectContext.executeFetchRequest(request)
+       //let result = try! managedObjectContext.executeFetchRequest(request)
         
-        arrDataM = result.map({ (element: AnyObject) -> DataMusic in
+       let result: NSArray = MusicData.MR_findAll()!
+        
+        arrDataM = result.map { (element: AnyObject) -> DataMusic in
             
-            let elData = DataMusic()
-            elData.id =  element.valueForKey("id") as! String
-            elData.title = element.valueForKey("title") as! String
-            elData.duration = element.valueForKey("duration") as! String
-            elData.urlFile = element.valueForKey("file") as! String
-            elData.imageFile = element.valueForKey("image_file") as! String
+          let elData = DataMusic()
+          elData.id =  element.valueForKey("id") as! String
+          elData.title = element.valueForKey("title") as! String
+          elData.duration = element.valueForKey("duration") as! String
+          elData.urlFile = element.valueForKey("file") as! String
+          elData.imageFile = element.valueForKey("image_file") as! String
             
-            return elData
-        })
+          return elData
+        }
         
      return arrDataM
         
     }    
     
     func deleteAll() {
-        let fetchRequest = NSFetchRequest(entityName: "MusicData")
+       /* let fetchRequest = NSFetchRequest(entityName: "MusicData")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         let myManagedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         let myPersistentStoreCoordinator = (UIApplication.sharedApplication().delegate as! AppDelegate).persistentStoreCoordinator
@@ -109,27 +111,26 @@ class JsonDCoreManager {
             try myPersistentStoreCoordinator.executeRequest(deleteRequest, withContext: myManagedObjectContext)
         } catch let error as NSError {
             print(error)
-        }
-      
+        }*/
     }
     
     func filtred(fData: String) -> Bool  {
         let fetchRequest = NSFetchRequest(entityName:"MusicData")
         let predicate = NSPredicate(format: "id = %@", fData)
         fetchRequest.predicate = predicate
-        
-        let myManagedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+       
         var result: AnyObject!
         do {
-           result = try  myManagedObjectContext.executeFetchRequest(fetchRequest)
+           result = try  managedObjectContext.executeFetchRequest(fetchRequest)
         } catch  let error as NSError {
             print(error) }
        
-        if result.count != 0 {
-            return true }
-        return false
+        if result.count == 0 {
+            return false
+        }
+        return true
     }
     
-
+   
     
 }

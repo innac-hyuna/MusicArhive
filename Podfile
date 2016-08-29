@@ -10,7 +10,8 @@ pod 'MBProgressHUD'
 pod 'Kingfisher', '~> 2.4'
 pod 'SnapKit', '~> 0.15.0'
 pod 'ReactiveCocoa', '= 4.0.0'
-
+pod 'Alamofire', '~> 3.0'
+pod 'MagicalRecord'
 
 target 'MusicArhiveTests' do
 

@@ -86,6 +86,8 @@ class MusicManager: NSObject {
     }
 }
 
+//MARK: AVAudioPlayerDelegate
+
 extension MusicManager: AVAudioPlayerDelegate {
     
     func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {     

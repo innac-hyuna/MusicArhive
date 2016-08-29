@@ -10,18 +10,19 @@ import UIKit
 import Kingfisher
 import MBProgressHUD
 
+
+
 class MainViewController: UIViewController {
     var tableView: UITableView!
     let cellIdent = "MusicCell"
     var arrData: [DataMusic]!
     var progressHUD: MBProgressHUD!
-    let limitRow = 5
+    let limitRow = 2
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Arhive Music"
-        
         
         tableView = UITableView()
         tableView.backgroundColor = UIColor.bgGridColor()
@@ -85,8 +86,10 @@ class MainViewController: UIViewController {
     }
 }
 
+ //MARK: UITableViewDelegate
+
 extension MainViewController: UITableViewDelegate {
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
        
          let MusicPlay = MusicPlayViewController()
          MusicPlay.dataList = arrData
@@ -95,7 +98,9 @@ extension MainViewController: UITableViewDelegate {
     }
 }
 
-extension MainViewController: UITableViewDataSource{
+ //MARK: UITableViewDataSource
+
+extension MainViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrData != nil ? arrData.count : 0
